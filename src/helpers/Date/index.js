@@ -12,5 +12,5 @@ export const MONTHS = {
   11: "novembre",
   12: "décembre",
 };
-
-export const getMonth = (date) => MONTHS[date.getMonth()];
+// Erreur de numérotation, la fonction getMonth commence à 0. C'est pourquoi le mois de janvier n'était pas affiché et les autres mois sont décalés. Ajout de +1.
+export const getMonth = (date) => MONTHS[date.getMonth() + 1];
