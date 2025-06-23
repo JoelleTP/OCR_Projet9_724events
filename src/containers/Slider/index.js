@@ -18,7 +18,7 @@ const Slider = () => {
   };
   useEffect(() => {
     nextCard();
-  });
+  }, [index, byDateDesc]); // Ajout d'un tableau de dépendances
   /* Sortie de la div SlideCard__paginationContainer de la map précédente */
   return (
     <div className="SlideCardList">
@@ -47,6 +47,7 @@ const Slider = () => {
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx}
+                  readOnly
                 />
               ))}
             </div>

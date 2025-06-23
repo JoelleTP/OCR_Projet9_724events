@@ -13,13 +13,13 @@ const Select = ({
   label,
   type = "normal",
 }) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(); 
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
     // Ajout de newValue sur le onChange
     onChange(newValue);
     setValue(newValue);
-    setCollapsed(newValue);
+    setCollapsed(true); // Changement à true pour que la collapse se ferme même si la newValue est null (pour "toutes")
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
@@ -33,7 +33,7 @@ const Select = ({
             <>
               {!titleEmpty && (
                 <li onClick={() => changeValue(null)}>
-                  <input defaultChecked={!value} name="selected" type="radio" />{" "}
+                  <input defaultChecked={value === null} name="selected" type="radio" />{" "}
                   Toutes
                 </li>
               )}
